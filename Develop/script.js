@@ -17,11 +17,27 @@ function generatePassword() {
  }
 
   else {
-    prompt("Invalid entry.  Please enter a number from 8 to 128.")
     console.log("invalid password length entry");
+    prompt("Invalid entry.  Please enter a number from 8 to 128.")
     }
-  }
-//    b. lowercase, upercase, numbers, special characters
+
+
+    //    b. lowercase, upercase, numbers, special characters
+  var includeLowercase
+    includeLowercase = confirm("Click OK to include lowercase characters")
+
+    if (includeLowercase == true) {
+      console.log("include lowercase characters")
+    }
+
+    else {
+      console.log("exclude lowercase characters")
+    }
+
+
+
+
+}
 // 2. validate input
 // 3. generate password
 
