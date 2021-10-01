@@ -13,11 +13,11 @@ function generatePassword() {
     passwordLength = prompt("How many characters would you like your password to contain? Please type a value from 8 to 128 characters.");
 
   if (passwordLength >=8 && passwordLength <=128) {
-   console.log("valid input entered");
+   console.log("valid password length entered");
  }
 
   else {
-    console.log("invalid password length entry");
+    console.log("invalid password length entered");
     prompt("Invalid entry.  Please enter a number from 8 to 128.")
     }
 
@@ -34,11 +34,42 @@ function generatePassword() {
       console.log("exclude lowercase characters")
     }
 
+  var includeUpercase
+    includeUpercase = confirm("Click OK to include upercase characters")
+
+    if (includeUpercase == true) {
+      console.log("include upercase characters")
+    }
+
+    else {
+      console.log("exclude upercase characters")
+    }
+
+  var includeNumeric
+    includeNumeric = confirm("Click OK to include numeric characters")
+
+    if (includeNumeric == true) {
+      console.log("include numeric characters")
+    }
+
+    else {
+      console.log("exclude numeric characters")
+    }
+
+    var includeSpecial
+    includeSpecial = confirm("Click OK to include special characters")
+
+    if (includeSpecial == true) {
+      console.log("include special characters")
+    }
+
+    else {
+      console.log("exclude special characters")
+    }
 
 
-
-}
-// 2. validate input
+  }
+// 2. validate input- confirm at least one character type was selected and inform user
 // 3. generate password
 
 
