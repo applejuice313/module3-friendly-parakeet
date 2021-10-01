@@ -11,18 +11,16 @@ function generatePassword() {
 //    a. password from 8 through 128 characters
   var passwordLength
     passwordLength = prompt("How many characters would you like your password to contain? Please type a value from 8 to 128 characters.");
-}
-//  if (passwordLength >=8 && passwordLength <=128) {
-//    console.log("valid input entered");
-//  }
-//
-//  else if (passwordLength )
 
-   // else (passwordLength <8 && passwordLength >128) 
-  //  console.log("invalid password length");
-  //  }
+  if (passwordLength >=8 && passwordLength <=128) {
+   console.log("valid input entered");
+ }
 
-  
+  else {
+    prompt("Invalid entry.  Please enter a number from 8 to 128.")
+    console.log("invalid password length entry");
+    }
+  }
 //    b. lowercase, upercase, numbers, special characters
 // 2. validate input
 // 3. generate password
