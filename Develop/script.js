@@ -5,7 +5,7 @@ var generateBtn = document.querySelector("#generate");
 
 
   // password from 8 through 128 characters
-  function generatePassword(passwordLength) {
+  function generatePassword() {
     console.log("start generate password function");
   
   
@@ -97,13 +97,13 @@ var generateBtn = document.querySelector("#generate");
 
     
     var allChar = lowercaseChar + uppercaseChar + numericalChar + specialChar;
-    var randomPasswordArray = Array(passwordLength.value);
+    var randomPasswordArray = Array(passwordLength);
     
     randomPasswordArray[0] = lowercaseChar;
     randomPasswordArray[1] = uppercaseChar;
     randomPasswordArray[2] = numericalChar;
     randomPasswordArray[3] = specialChar;
-    randomPasswordArray = randomPasswordArray.fill(allChar);
+    randomPasswordArray = randomPasswordArray.fill(allChar, 4);
     return shuffleArray(randomPasswordArray.map(function(x) {return x[Math.floor(Math.random() * x.length)] })).join('');
 
     
@@ -130,18 +130,6 @@ function shuffleArray(array) {
 
 // generate the password based on the user-specified parameters
 
-
-
-
-
-
-
-
- 
-
-
-
-   
 
 
 // Write password to the #password input
