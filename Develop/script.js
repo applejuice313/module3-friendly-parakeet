@@ -5,15 +5,13 @@ var generateBtn = document.querySelector("#generate");
 
 
   // password from 8 through 128 characters
-  function generatePassword(passwordLength) {
+  
+  function generatePassword() {
     console.log("start generate password function");
   
-  
-  
-  var passwordLength;
+    var passwordLength = prompt("How many characters would you like your password to contain? Please type a value from 8 to 128 characters.")
     
   while (true) {
-      passwordLength = prompt("How many characters would you like your password to contain? Please type a value from 8 to 128 characters.")
       if (passwordLength >=8 && passwordLength <=128) {
         console.log("valid password length entered");
         console.log("password length=",(passwordLength), "characters");
@@ -23,7 +21,7 @@ var generateBtn = document.querySelector("#generate");
     console.log("invalid password length entered")
     alert("invalid password length entered");
   }
-  
+
 
   // var lowercaseChar = Array(65, 90);
   //var uppercaseChar = Array(97, 122);
@@ -42,7 +40,7 @@ var generateBtn = document.querySelector("#generate");
     includeLowercase = confirm("Click OK to include lowercase characters")
 
     if (includeLowercase == true) {
-      var lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
+      var lowercaseChar = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
         console.log("include lowercase characters");
       }
     
@@ -57,7 +55,7 @@ var generateBtn = document.querySelector("#generate");
     includeUpercase = confirm("Click OK to include upercase characters")
 
     if (includeUpercase == true) {
-      var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      var uppercaseChar = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','R','S','T','U','V','W','X','Y','Z'];
       console.log("include upercase characters")
     }
 
@@ -70,7 +68,7 @@ var generateBtn = document.querySelector("#generate");
     includeNumeric = confirm("Click OK to include numeric characters")
 
     if (includeNumeric == true) {
-      var numericalChar = "0123456789";
+      var numericalChar = ['0','1','2','3','4','5','6','7','8','9'];
       console.log("include numeric characters")
     }
 
@@ -83,7 +81,7 @@ var generateBtn = document.querySelector("#generate");
     includeSpecial = confirm("Click OK to include special characters")
 
     if (includeSpecial == true) {
-      var specialChar = "`~!@#$%^&*()-=[];',./_+|{}:?";
+      var specialChar = ['`','~','!','@','#','$','%','^','&','*','(',')','-','=','[',']',';',',','.','/',',','+','|','?'];
       console.log("include special characters")
     }
 
@@ -93,8 +91,10 @@ var generateBtn = document.querySelector("#generate");
     }
 
 
- 
+   
+    
 
+    
     
     var allChar = lowercaseChar + uppercaseChar + numericalChar + specialChar;
     var randomPasswordArray = Array(passwordLength.value);
@@ -129,18 +129,6 @@ function shuffleArray(array) {
 
 
 // generate the password based on the user-specified parameters
-
-
-
-
-
-
-
-
- 
-
-
-
    
 
 
