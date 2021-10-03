@@ -8,15 +8,15 @@ var generateBtn = document.querySelector("#generate");
   function generatePassword() {
     console.log("start generate password function");
   
+    
   
-  
-  var passwordLength;
+  var length;
     
   while (true) {
-      passwordLength = prompt("How many characters would you like your password to contain? Please type a value from 8 to 128 characters.")
-      if (passwordLength >=8 && passwordLength <=128) {
+      length = prompt("How many characters would you like your password to contain? Please type a value from 8 to 128 characters.")
+      if (length >=8 && length <=128) {
         console.log("valid password length entered");
-        console.log("password length=",(passwordLength), "characters");
+        console.log("password length=",(length), "characters");
         
       break;   
     } 
@@ -25,65 +25,58 @@ var generateBtn = document.querySelector("#generate");
   }
   
 
-  // var lowercaseChar = Array(65, 90);
-  //var uppercaseChar = Array(97, 122);
-  //var numericalChar = Array(48, 57);
-  //var specialChar = Array(33, 47).concat(
-  //      Array(58, 64)
-  //      ).concat(
-   //       Array(91, 96)
-   //     ).concat(
-   //       Array(123, 126)
-   //     );
+  var lower;
+    lower = confirm("Click OK to include lowercase characters")
 
-
-    //    b. lowercase, upercase, numbers, special characters
-  var includeLowercase
-    includeLowercase = confirm("Click OK to include lowercase characters")
-
-    if (includeLowercase == true) {
-      var lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
+    if (lower == true) {
+      function getRandomLower() {
+        return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+      }
         console.log("include lowercase characters");
       }
     
     else {
-      var lowercaseChar = null 
       console.log("exclude lowercase characters");
 
     }
 
   
-  var includeUpercase
-    includeUpercase = confirm("Click OK to include upercase characters")
+  var upper;
+    upper = confirm("Click OK to include upercase characters")
 
-    if (includeUpercase == true) {
-      var uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (upper == true) {
+      function getRandomUpper() {
+        return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+      }
       console.log("include upercase characters")
     }
 
     else {
-      var uppercaseChar = null
       console.log("exclude upercase characters")
     }
 
-  var includeNumeric
-    includeNumeric = confirm("Click OK to include numeric characters")
+  var number
+    number = confirm("Click OK to include numeric characters")
 
-    if (includeNumeric == true) {
-      var numericalChar = "0123456789";
+    if (number == true) {
+      function getRandomNumber() {
+        return String.fromCharCode(Math.floor(Math.random() * 26) + 48);
+      }
       console.log("include numeric characters")
     }
 
     else {
-      var numericalChar = null
       console.log("exclude numeric characters")
     }
 
-    var includeSpecial
-    includeSpecial = confirm("Click OK to include special characters")
+    var special;
+    special = confirm("Click OK to include special characters")
 
-    if (includeSpecial == true) {
-      var specialChar = "`~!@#$%^&*()-=[];',./_+|{}:?";
+    if (special == true) {
+      function getRandomSpecial() {
+        const special = '!@#$%^&*()_-=+":;?/.,><';
+        return special[Math.floor(Math.random() * special.length)]
+      }
       console.log("include special characters")
     }
 
@@ -92,33 +85,21 @@ var generateBtn = document.querySelector("#generate");
       console.log("exclude special characters")
     }
 
-
- 
-
     
-    var allChar = lowercaseChar + uppercaseChar + numericalChar + specialChar;
-    var randomPasswordArray = Array(passwordLength);
-    
-    randomPasswordArray[0] = lowercaseChar;
-    randomPasswordArray[1] = uppercaseChar;
-    randomPasswordArray[2] = numericalChar;
-    randomPasswordArray[3] = specialChar;
-    randomPasswordArray = randomPasswordArray.fill(allChar, 4);
-    return shuffleArray(randomPasswordArray.map(function(x) {return x[Math.floor(Math.random() * x.length)] })).join('');
+    let generatePassword = '';
 
-    
+    const typesCount = lower + upper + number + special;
+    console.log('typesCount: ', typesCount);
 
+    const typesArray = [{ lower }, { upper }, { number }, { special }, { length }]
+    console.log('typesArray: ', typesArray);
 
-
-function shuffleArray(array) {
-  for (var i = array.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    var temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
+  const randomizerFunction = {
+    lower: getRandomLower,
+    upper: getRandomUpper,
+    number: getRandomNumber,
+    special: getRandomSpecial
   }
-  return array;
-}
   
 }
 
